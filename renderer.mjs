@@ -129,6 +129,12 @@ export async function renderSlide(slideData, index, totalSlides) {
     title: String(slideData.title ?? ""),
     subtitle: slideData.subtitle ? String(slideData.subtitle) : "",
     items: (slideData.items || []).map(String),
+    brandText: slideData.brandText
+      ? String(slideData.brandText)
+      : "Eegyo SIMS - Aplikasi Sekolah Super Lengkap",
+    website: slideData.website
+      ? String(slideData.website)
+      : "Kunjungi eegyosims.com",
   };
 
   const isCarousel = totalSlides > 1;
@@ -523,9 +529,9 @@ export async function renderSlide(slideData, index, totalSlides) {
         display: "flex",
         flexDirection: "column",
         backgroundColor: C.white,
-        // Gradasi #fdf42b di background dasar putih
+        // Gradasi #fdf42b lembut di background dasar putih (dominan putih)
         backgroundImage:
-          "radial-gradient(circle at 92% 10%, rgba(253, 244, 43, 0.5) 0%, rgba(253, 244, 43, 0.12) 38%, transparent 65%), radial-gradient(circle at 8% 90%, rgba(253, 244, 43, 0.45) 0%, rgba(253, 244, 43, 0.1) 40%, transparent 68%), radial-gradient(circle at 50% 50%, rgba(253, 244, 43, 0.08) 0%, transparent 60%)",
+          "radial-gradient(circle at 92% 8%, rgba(253, 244, 43, 0.28) 0%, rgba(253, 244, 43, 0.06) 35%, transparent 55%), radial-gradient(circle at 8% 92%, rgba(253, 244, 43, 0.22) 0%, rgba(253, 244, 43, 0.04) 35%, transparent 55%)",
         fontFamily: "Poppins",
         position: "relative",
         overflow: "hidden",
@@ -546,7 +552,7 @@ export async function renderSlide(slideData, index, totalSlides) {
               right: "-50px",
               width: "360px",
               height: "360px",
-              opacity: 0.65,
+              opacity: 0.35,
             },
           },
         },
@@ -921,24 +927,12 @@ export async function renderSlide(slideData, index, totalSlides) {
                       props: {
                         style: {
                           color: C.white,
-                          fontSize: "20px",
-                          fontWeight: 700,
+                          fontSize: "19px",
+                          fontWeight: 600,
                           fontFamily: "Poppins",
                           letterSpacing: "0.5px",
                         },
-                        children: "@eegyosims",
-                      },
-                    },
-                    {
-                      type: "div",
-                      props: {
-                        style: {
-                          color: "rgba(255, 255, 255, 1)",
-                          fontSize: "16px",
-                          fontFamily: "Inter",
-                          marginLeft: "6px",
-                        },
-                        children: "• Aplikasi Sekolah Super Lengkap",
+                        children: slideData.brandText,
                       },
                     },
                   ],
@@ -959,7 +953,7 @@ export async function renderSlide(slideData, index, totalSlides) {
                       type: "div",
                       props: {
                         style: {
-                          color: "rgba(255, 255, 255, 1)",
+                          color: "rgba(255, 255, 255, 0.75)",
                           fontSize: "17px",
                           fontWeight: 500,
                           fontFamily: "Inter",
@@ -967,7 +961,7 @@ export async function renderSlide(slideData, index, totalSlides) {
                         children:
                           isCarousel && !isLastSlide
                             ? "Geser untuk lanjut"
-                            : "www.eegyosims.com",
+                            : slideData.website,
                       },
                     },
                     isCarousel && !isLastSlide
