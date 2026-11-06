@@ -207,3 +207,4 @@ Lalu jalankan:
 node renderer.mjs tmp/post_ppdb.json
 ```
 Hasil file PNG akan langsung tersedia di folder `output/`.
+
