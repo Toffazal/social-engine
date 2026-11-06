@@ -1,0 +1,15 @@
+{
+  "slides": [
+    {
+      "badge": "FITUR BARU",
+      "icon": "zap",
+      "title": "Otomatisasi Jadwal Pelajaran Sekolah",
+      "subtitle": "Kini penyusunan jadwal guru dan kelas bebas bentrok dalam satu klik.",
+      "items": [
+        "Deteksi otomatis guru yang bentrok jam",
+        "Distribusi ruangan kelas yang presisi",
+        "Ekspor langsung ke format PDF dan Excel"
+      ]
+    }
+  ]
+}
